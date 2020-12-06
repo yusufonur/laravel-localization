@@ -19,13 +19,13 @@ composer require yusufonur/laravel-localization
 You can publish and run the migrations with:
 
 ```bash
-php artisan vendor:publish --provider="Yusufonur\LaravelLocalization\LaravelLocalizationServiceProvider" --tag="migrations"
+php artisan vendor:publish --provider="YusufOnur\LaravelLocalization\LaravelLocalizationServiceProvider" --tag="migrations"
 php artisan migrate
 ```
 
 You can publish the config file with:
 ```bash
-php artisan vendor:publish --provider="Yusufonur\LaravelLocalization\LaravelLocalizationServiceProvider" --tag="config"
+php artisan vendor:publish --provider="YusufOnur\LaravelLocalization\LaravelLocalizationServiceProvider" --tag="config"
 ```
 
 
@@ -33,10 +33,39 @@ php artisan vendor:publish --provider="Yusufonur\LaravelLocalization\LaravelLoca
 ## Usage
 
 ``` php
-$laravel-localization = new Yusufonur\LaravelLocalization();
-echo $laravel-localization->echoPhrase('Hello, Yusufonur!');
+$turkish = LaravelLocalization::createLanguage("Türkçe", "tr");
+$english = LaravelLocalization::createLanguage("İngilizce", "en");
+
+$metaHome = LaravelLocalization::createLanguageMeta("home");
+$metaContact = LaravelLocalization::createLanguageMeta("Contact");
+
+LaravelLocalization::createLanguageMetaTranslate($turkish, $metaHome, "Anasayfa");
+LaravelLocalization::createLanguageMetaTranslate($turkish, $metaContact, "İletişim");
+LaravelLocalization::createLanguageMetaTranslate($english, $metaHome, "Home");
+LaravelLocalization::createLanguageMetaTranslate($english, $metaContact, "Contact");
+
+return LaravelLocalization::getLanguageMetaTranslatesRegular();
+    /*
+        {
+          "en": {
+            "home": "Home",
+            "Contact": "Contact"
+          },
+          "tr": {
+            "home": "Anasayfa",
+            "Contact": "İletişim"
+          }
+        }
+    */
 ```
 
+##Helper Usage
+```
+    {{ ll("home") }} 
+```
+If default language (you can get with app()->getLocale()) then result is **tr**: "Anasayfa"
+
+If getLocale then result is **en**: "Home"
 
 ## Changelog
 
