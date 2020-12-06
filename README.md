@@ -66,7 +66,7 @@ return LaravelLocalization::getLanguageMetaTranslatesRegular();
 
 ## Helper Usage
 ```
-    {{ ll("home") }} 
+{{ ll("home") }}
 ```
 If default language (you can get with app()->getLocale()) then result is **tr**: "Anasayfa"
 
