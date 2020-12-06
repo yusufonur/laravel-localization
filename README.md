@@ -9,8 +9,9 @@ This is where your description should go. Limit it to a paragraph or two. Consid
 
 
 ## Requirements
-- PHP 8
-- Laravel 6, 7, 8 latest version
+- PHP ,
+- Laravel 6, 7, 8 latest version,
+- Redis or TaggableStore driver for cache.
 
 ## Installation
 
@@ -63,7 +64,7 @@ return LaravelLocalization::getLanguageMetaTranslatesRegular();
     */
 ```
 
-##Helper Usage
+## Helper Usage
 ```
     {{ ll("home") }} 
 ```
