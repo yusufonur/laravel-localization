@@ -52,10 +52,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Yusufonur\\LaravelLocalization\\LaravelLocalizationServiceProvider"
+                "YusufOnur\\LaravelLocalization\\LaravelLocalizationServiceProvider"
             ],
             "aliases": {
-                "LaravelLocalization": "Yusufonur\\LaravelLocalization\\LaravelLocalizationFacade"
+                "LaravelLocalization": "YusufOnur\\LaravelLocalization\\LaravelLocalizationFacade"
             }
         }
     },
