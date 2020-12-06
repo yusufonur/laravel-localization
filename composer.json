@@ -1,0 +1,64 @@
+{
+    "name": "yusufonur/laravel-localization",
+    "description": "Laravel localization",
+    "keywords": [
+        "yusufonur",
+        "laravel-localization"
+    ],
+    "homepage": "https://github.com/yusufonur/laravel-localization",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Yusuf Onur SARI",
+            "email": "63yusufsari63@gmail.com",
+            "homepage": "https://github.com/yusufonur",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0",
+        "illuminate/auth": "^8.0",
+        "illuminate/container": "^8.0",
+        "illuminate/contracts": "^8.0",
+        "illuminate/database": "^8.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.0",
+        "phpunit/phpunit": "^9.3",
+        "predis/predis": "^1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Yusufonur\\LaravelLocalization\\": "src",
+            "Yusufonur\\LaravelLocalization\\Database\\Factories\\": "database/factories"
+        },
+        "files": [
+            "src/Helpers/Helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Yusufonur\\LaravelLocalization\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "psalm": "vendor/bin/psalm",
+        "test": "vendor/bin/phpunit --colors=always",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Yusufonur\\LaravelLocalization\\LaravelLocalizationServiceProvider"
+            ],
+            "aliases": {
+                "LaravelLocalization": "Yusufonur\\LaravelLocalization\\LaravelLocalizationFacade"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

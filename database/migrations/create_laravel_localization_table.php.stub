@@ -1,0 +1,48 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateLaravelLocalizationTable extends Migration
+{
+    public function up()
+    {
+        Schema::create(config("laravel-localization.tables.languages"), function (Blueprint $table) {
+            $table->id();
+            $table->string("name")->unique();
+            $table->string("code")->unique();
+            $table->timestamps();
+        });
+
+        Schema::create(config("laravel-localization.tables.language_metas"), function (Blueprint $table) {
+            $table->id();
+            $table->string("word")->unique();
+            $table->timestamps();
+        });
+
+        Schema::create(config("laravel-localization.tables.language_meta_translates"), function (Blueprint $table) {
+            $table->id();
+            $table->foreignId("language_id")
+                ->references("id")
+                ->on(config("laravel-localization.tables.languages"))
+                ->cascadeOnDelete();
+            $table->foreignId("language_meta_id")
+                ->references("id")
+                ->on(config("laravel-localization.tables.language_metas"))
+                ->cascadeOnDelete();
+            $table->string("word");
+            $table->timestamps();
+            $table->unique(["language_id", "language_meta_id", "word"], "unique_translate");
+        });
+    }
+
+    public function down()
+    {
+        Schema::dropIfExists(config("laravel-localization.tables.languages"));
+
+        Schema::dropIfExists(config("laravel-localization.tables.language_metas"));
+
+        Schema::dropIfExists(config("laravel-localization.tables.language_meta_translates"));
+    }
+}
