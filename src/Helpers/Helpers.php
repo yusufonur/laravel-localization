@@ -1,7 +1,7 @@
 <?php
 
 
-function ll(string $dotNotation) {
+function __local(string $dotNotation) {
     $explode = explode(".", $dotNotation);
     $lang = app()->getLocale() ?? current($explode);
     $name = end($explode);
