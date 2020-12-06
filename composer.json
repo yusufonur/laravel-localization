@@ -29,8 +29,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Yusufonur\\LaravelLocalization\\": "src",
-            "Yusufonur\\LaravelLocalization\\Database\\Factories\\": "database/factories"
+            "YusufOnur\\LaravelLocalization\\": "src",
+            "YusufOnur\\LaravelLocalization\\Database\\Factories\\": "database/factories"
         },
         "files": [
             "src/Helpers/Helpers.php"
@@ -38,7 +38,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Yusufonur\\LaravelLocalization\\Tests\\": "tests"
+            "YusufOnur\\LaravelLocalization\\Tests\\": "tests"
         }
     },
     "scripts": {
