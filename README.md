@@ -5,11 +5,11 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/yusufonur/laravel-localization.svg?style=flat-square)](https://packagist.org/packages/yusufonur/laravel-localization)
 
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+This package helps you to use multiple languages in your projects. You can write languages and their word equivalents and use them in your application. I recommend using redis for better performance.
 
 
 ## Requirements
-- PHP ,
+- PHP 8,
 - Laravel 6, 7, 8 latest version,
 - Redis or TaggableStore driver for cache.
 
