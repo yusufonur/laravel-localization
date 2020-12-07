@@ -1,13 +1,15 @@
 <?php
 
 
+use YusufOnur\LaravelLocalization\LaravelLocalization;
+
 function __local(string $dotNotation) {
     $explode = explode(".", $dotNotation);
     $lang = app()->getLocale() ?? current($explode);
     $name = end($explode);
 
     try {
-        $metaTranslates = YusufOnur\LaravelLocalization\LaravelLocalization::getLanguageMetaTranslatesRegular($lang);
+        $metaTranslates = LaravelLocalization::getLanguageMetaTranslatesRegular($lang);
     } catch (Exception $error) {
         return $name;
     }
